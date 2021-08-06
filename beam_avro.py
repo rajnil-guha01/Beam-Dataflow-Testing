@@ -86,7 +86,7 @@ table_schema = {
             },
             {
                 "name": "cc",
-                "type": "INT64"
+                "type": "INTEGER"
             },
             {
                 "name": "country",
