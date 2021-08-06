@@ -9,7 +9,7 @@ import argparse
 import json
 import datetime,time
 
-def checkValueelement(element):
+def checkValueelement(element): 
     key = element[0]
     value = element[1]
     if (value != 1):
