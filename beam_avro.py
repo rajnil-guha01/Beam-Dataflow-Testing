@@ -120,7 +120,7 @@ with beam.Pipeline(options = options) as p:
 
     dupe_ids = (avro_records | "CheckDupeIds" >> CheckDupeTransform())
 
-    write_dupe_ids = dupe_ids | "WriteAsText" >> beam.io.WriteToText(output_bucket)
+    write_dupe_ids = dupe_ids | "WriteAsText" >> beam.io.WriteToText(output_bucket, file_name_suffix=".txt")
 
     write_to_bq = (avro_records | "WriteToBigQuery" >> beam.io.WriteToBigQuery(
         output_table,
