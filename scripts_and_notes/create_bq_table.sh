@@ -1,0 +1,1 @@
+bq mk --table --description "Data written from dataflow to Big Query" practise-gcp-project:my_test_dataset.users_history registration_dttm:TIMESTAMP,id:INTEGER,first_name:STRING,last_name:STRING,email:STRING,gender:STRING,ip_address:STRING,cc:INTEGER,country:STRING,birthdate:STRING,salary:FLOAT,title:STRING,comments:STRING
