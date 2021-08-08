@@ -30,7 +30,7 @@ parser = argparse.ArgumentParser(description="Playing with Avro data in Beam")
 
 #Google Cloud options
 parser.add_argument("--runner", required=True, help="Please enter Apache Beam Runner")
-parser.add_argument("--staging_location", required=True, help="Please enter staging GCS Bucket")
+#parser.add_argument("--staging_location", required=True, help="Please enter staging GCS Bucket")
 parser.add_argument("--temp_location", required=True, help="Please enter temporary GCS location")
 parser.add_argument("--region", required=True, help="Please enter Apache Beam Runner")
 parser.add_argument("--project", required=True, help="Please enter the GCP Project")
@@ -44,9 +44,9 @@ opts, pipeline_opts = parser.parse_known_args()
 options = PipelineOptions(pipeline_opts, save_main_session = True)
 options.view_as(GoogleCloudOptions).project = opts.project
 options.view_as(GoogleCloudOptions).region = opts.region
-options.view_as(GoogleCloudOptions).staging_location = opts.staging_location
+#options.view_as(GoogleCloudOptions).staging_location = opts.staging_location
 options.view_as(GoogleCloudOptions).temp_location = opts.temp_location
-options.view_as(GoogleCloudOptions).runner = opts.runner
+options.view_as(StandardOptions).runner = opts.runner
 options.view_as(GoogleCloudOptions).job_name = f"avro-test-{time.time_ns()}"
 
 input = opts.input
