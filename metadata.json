@@ -7,7 +7,7 @@
             "label" : "Please enter the GCS Bucket path where data file is kept",
             "helpText" : "GCS path for input file",
             "regexes" : [
-                "projects/[^/]+/topics/[a-zA-Z][-_.~+%a-zA-Z0-9]{2,}"
+                "gs://.*"
               ]
         },
         {
@@ -15,7 +15,7 @@
             "label" : "Please enter the GCS bucket to write intermmidiate output",
             "helpText" : "Deadletter storage",
             "regexes" : [
-                "projects/[^/]+/topics/[a-zA-Z][-_.~+%a-zA-Z0-9]{2,}"
+                "gs://.*"
               ]
         },
         {
@@ -23,7 +23,7 @@
             "label" : "Please enter the BQ table to write output",
             "helpText" : "BQ Table to write output",
             "regexes" : [
-                "projects/[^/]+/topics/[a-zA-Z][-_.~+%a-zA-Z0-9]{2,}"
+                "[^:]+:[^.]+[.].+"
               ] 
         }
     ]

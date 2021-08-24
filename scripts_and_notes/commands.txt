@@ -14,3 +14,19 @@ gcloud dataflow flex-template build <TEMPLATE_PATH> \
 --image "<TEMPLATE_IMAGE>" \
 --sdk-language "PYTHON" \
 --metadata-file "<METADATA_FILE_PATH>"
+
+##Run flex-template
+export TEMPLATE_PATH="gs://dataflow-projects/flex_templates/first-flex-template.json"
+export INPUT_FILE="gs://dataflow-input-sources/userdata1.avro"
+export OUTPUT_BUCKET="gs://deadletter-sink/duplicate-records"
+export OUTPUT_TABLE="my_test_dataset.users_history"
+export PROJECT_ID="practise-gcp-project"
+export REGION="us-central1"
+
+gcloud dataflow flex-template run "flex-template-run-`date +%Y%m%d-%H%M%S`" \
+--template-file-gcs-location "${TEMPLATE_PATH}" \
+--parameters input="${INPUT_FILE}" \
+--parameters output_bucket="${OUTPUT_BUCKET}" \
+--parameters output_table="${OUTPUT_TABLE}" \
+--region "${REGION}" \
+--project "${PROJECT_ID}"
